@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Preferences"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+
+            <columns
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+                        <items jcr:primaryType="nt:unstructured">
+
+                            <!-- Name -->
+                            <name
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Name"
+                                fieldDescription="Enter your name"
+                                name="./name"/>
+
+                            <!-- Country Dropdown -->
+                            <country
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Country"
+                                fieldDescription="Select your country"
+                                name="./country"
+                                emptyText="Select Country">
+
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="demo/datasource/dropdowns"
+                                    dropdownSelector="countryList"/>
+                            </country>
+
+                            <!-- Color Dropdown -->
+                            <color
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Favorite Color"
+                                fieldDescription="Select your favorite color"
+                                name="./color"
+                                emptyText="Select Color">
+
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="demo/datasource/dropdowns"
+                                    dropdownSelector="colorList"/>
+                            </color>
+
+                            <!-- Font Dropdown -->
+                            <font
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Favorite Font"
+                                fieldDescription="Select your font"
+                                name="./font"
+                                emptyText="Select Font">
+
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="demo/datasource/dropdowns"
+                                    dropdownSelector="fontList"/>
+                            </font>
+
+                        </items>
+                    </column>
+                </items>
+            </columns>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,25 @@
+<sly data-sly-use.carousel="com.adobe.aem.guides.demo.core.models.CarouselT2"/>
+
+<!-- Placeholder shown in the editor when nothing is authored -->
+<div data-sly-test="${wcmmode.edit && carousel.empty}"
+     class="cq-placeholder"
+     data-emptytext="Carousel"></div>
+
+<div class="cmp-carousel" data-sly-test="${!carousel.empty}">
+
+    <!-- Outer loop: one block per slide -->
+    <div class="cmp-carousel__slide" data-sly-repeat.slide="${carousel.slides}">
+
+        <h3 class="cmp-carousel__title" data-sly-test="${slide.title}">${slide.title}</h3>
+
+        <a class="cmp-carousel__link" data-sly-test="${slide.linkUrl}" href="${slide.linkUrl}">${slide.linkUrl}</a>
+
+        <!-- Inner loop: tags of this slide -->
+         <div class="cmp-carousel__tags" data-sly-test="${slide.tags}">
+                <div class="cmp-carousel__tag"
+                    data-sly-repeat.tagItem="${slide.tags}">
+                    ${tagItem.tag}
+                </div>
+        </div>
+    </div>
+</div>

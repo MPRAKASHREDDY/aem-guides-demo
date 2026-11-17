@@ -1,0 +1,117 @@
+.shop-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 76px;
+    padding: 16px 32px;
+    margin: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    position: relative;
+    z-index: 100;
+}
+.shop-header * {
+    box-sizing: border-box;
+}
+.shop-header .shop-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2874f0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.shop-header .shop-nav,
+.shop-header .shop-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+}
+.shop-header a {
+    color: #222222;
+    text-decoration: none;
+    font-size: 15px;
+    white-space: nowrap;
+}
+.shop-header a:hover {
+    color: #2874f0;
+}
+/* Parent menu */
+.shop-header .shop-menu {
+    position: relative;
+}
+/* Dropdown panel */
+.shop-header .shop-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 320px;
+    padding: 24px;
+    gap: 28px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+}
+/* Show dropdown on mouse hover or keyboard focus */
+.shop-header .shop-menu:hover > .shop-dropdown,
+.shop-header .shop-menu:focus-within > .shop-dropdown {
+    display: flex;
+}
+/* Keep dropdown visible while moving the mouse into it */
+.shop-header .shop-dropdown div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 90px;
+}
+.shop-header .shop-dropdown h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #2874f0;
+}
+/* Dropdown links */
+.shop-header .shop-dropdown a {
+    display: block;
+    padding: 4px 0;
+    color: #333333;
+    font-size: 14px;
+}
+.shop-header .shop-dropdown a:hover {
+    color: #2874f0;
+}
+/* Responsive layout */
+@media (max-width: 900px) {
+    .shop-header {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 16px;
+    }
+    .shop-header .shop-nav,
+    .shop-header .shop-actions {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+}
+@media (max-width: 600px) {
+    .shop-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .shop-header .shop-nav,
+    .shop-header .shop-actions {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .shop-header .shop-dropdown {
+        min-width: 280px;
+        max-width: calc(100vw - 32px);
+        padding: 16px;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+}

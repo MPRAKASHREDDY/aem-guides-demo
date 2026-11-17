@@ -1,0 +1,227 @@
+
+/* ==========================================================================
+   1. MAIN BLOG LISTING CONTAINER
+   ========================================================================== */
+
+.blog-listing {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Blog Listing Heading */
+
+.blog-listing__title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* ==========================================================================
+   2. BLOG CARDS GRID
+   ========================================================================== */
+
+/* Four Cards Per Row */
+
+.blog-listing__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Tablet - Two Cards Per Row */
+
+@media (max-width: 1024px) {
+    .blog-listing__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile - One Card Per Row */
+
+@media (max-width: 600px) {
+    .blog-listing__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   3. INDIVIDUAL BLOG CARD
+   ========================================================================== */
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #fff;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Hide cards waiting for Show More */
+
+.blog-listing .blog-card.blog-card--hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   4. BLOG CARD IMAGE
+   ========================================================================== */
+
+.blog-card__image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.blog-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ==========================================================================
+   5. BLOG CARD CONTENT
+   ========================================================================== */
+
+.blog-card__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Article Title */
+
+.blog-card__content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 12px;
+    color: #222;
+}
+
+/* Article Description */
+
+.blog-card__description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 0 12px;
+}
+
+/* Author, Date and Reading Duration */
+
+.blog-card__content p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0 0 8px;
+}
+
+/* ==========================================================================
+   6. READ MORE LINK
+   ========================================================================== */
+
+.blog-card__link {
+    display: inline-block;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0066cc !important;
+    text-decoration: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+.blog-card__link:hover {
+    color: #004a99 !important;
+    text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   7. LINK CHECKER AND ICON CLEANUP
+   ========================================================================== */
+
+.blog-card__content img,
+.blog-card a img,
+.blog-card img[src*="linkchecker"],
+.blog-card img[src*="cq/"] {
+    display: none !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 16px !important;
+}
+
+/* Remove unwanted link pseudo-elements */
+
+.blog-card a::before,
+.blog-card a::after,
+.blog-card__link::before,
+.blog-card__link::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* Hide unwanted injected icons */
+
+.blog-card svg,
+.blog-card i,
+.blog-card span[class*="icon"],
+.blog-card span[class*="link"],
+.blog-card__content > span:not([class]) {
+    display: none !important;
+}
+
+/* ==========================================================================
+   8. SHOW MORE BUTTON
+   ========================================================================== */
+
+.blog-listing__more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.blog-listing .blog-listing__more {
+    padding: 12px 32px;
+    border: 1px solid #0066cc;
+    border-radius: 24px;
+    background: #fff;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.blog-listing .blog-listing__more:hover {
+    background: #0066cc;
+    color: #fff;
+}
+
+/* ==========================================================================
+   9. EMPTY RESULT MESSAGE
+   ========================================================================== */
+
+.blog-listing__empty {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+}

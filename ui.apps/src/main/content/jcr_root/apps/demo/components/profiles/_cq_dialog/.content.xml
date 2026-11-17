@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Profiles"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[demo.profiles.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <name
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                emptyText="Enter profile name"
+                fieldLabel="Name"
+                name="./name"/>
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                fieldLabel="Images"
+                name="./image">
+                <items jcr:primaryType="nt:unstructured">
+                    <empty
+                        jcr:primaryType="nt:unstructured"
+                        text="Select an image"
+                        value="\0"/>
+                </items>
+            </image>
+        </items>
+    </content>
+</jcr:root>

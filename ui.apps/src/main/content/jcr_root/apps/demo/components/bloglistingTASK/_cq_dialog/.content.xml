@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Blog Listing"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+                        <items jcr:primaryType="nt:unstructured">
+
+                            <!-- Maximum Articles / Page Size -->
+                            <maxItems
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                fieldDescription="Number of articles to display initially and reveal on each Show More click."
+                                fieldLabel="Maximum Articles"
+                                max="100"
+                                min="1"
+                                name="./maxItems"
+                                value="12"/>
+
+                            <!-- Tag Picker for Content Type / Categories -->
+                            <contentTypeFilter
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                fieldDescription="Select one or more categories. Leave empty to show all categories."
+                                fieldLabel="Content Type Filter"
+                                name="./contentTypeFilter"
+                                rootPath="/content/cq:tags"/>
+
+                        </items>
+                    </properties>
+
+                </items>
+            </tabs>
+
+        </items>
+    </content>
+</jcr:root>

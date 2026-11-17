@@ -1,0 +1,19 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${clientlib.js @ categories='demo.lumen-api-test'}"/>
+
+<div class="lumen-api-test">
+
+    <h2>Lumen API Test</h2>
+
+    <p>
+        Open Chrome Developer Tools and select
+        Network → Fetch/XHR to inspect the API request.
+    </p>
+
+    <p>
+        Check the Console tab to see the JSON response
+        and individual article details.
+    </p>
+
+</div>

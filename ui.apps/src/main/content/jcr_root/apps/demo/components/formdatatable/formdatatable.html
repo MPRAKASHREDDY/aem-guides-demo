@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.adobe.aem.guides.demo.core.models.FormDataTableModel"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<div class="demo-table" data-servlet="/bin/demo/contact">
+    <table border="1" cellpadding="8" cellspacing="0" style="width:100%;border-collapse:collapse;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-sly-repeat.item="${model.contacts}" data-id="${item.id}">
+                <td>${item.name}</td>
+                <td>${item.email}</td>
+                <td>${item.mobile}</td>
+                <td>
+                    <a class="demo-table__edit"
+                       href="${properties.contactPage || currentPage.path @ extension='html'}?id=${item.id}">Edit</a>
+                    <button type="button" class="demo-table__delete">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p data-sly-test="${!model.contacts}">No contacts yet.</p>
+</div>
+<sly data-sly-call="${clientlib.js @ categories='demo.formdatatable'}"/>

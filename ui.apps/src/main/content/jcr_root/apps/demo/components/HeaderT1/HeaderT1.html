@@ -1,0 +1,38 @@
+
+<sly data-sly-use.header="com.adobe.aem.guides.demo.core.models.HeaderT1"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='demo.header'}"></sly>
+
+<sly data-sly-test="${header.enableHeader}">
+    <header class="header">
+
+        <a class="header-title"
+           href="${header.headerLink @ extension='html'}">
+            ${header.headerTitle}
+        </a>
+
+        <div class="button_container">
+
+            <a class="button"
+               data-sly-repeat.item="${header.buttons}"
+               href="${item.buttonLink @ extension='html'}">
+
+                <span class="button_text">${item.buttonText}</span>
+
+                <img data-sly-test="${item.buttonIcon}"
+                     class="button_icon"
+                     src="${item.buttonIcon @ context='uri'}"
+                     alt="${item.buttonText}"/>
+
+            </a>
+
+        </div>
+
+        <a class="header-button"
+           data-sly-test="${header.buttonText}"
+           href="${header.buttonLink @ extension='html'}">
+            ${header.buttonText}
+        </a>
+
+    </header>
+</sly>

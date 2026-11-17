@@ -1,0 +1,6 @@
+{
+    "user.mapping": [
+        "aem-guides-demo.core:page-writer=demo-writer",
+         "aem-guides-demo.core:page-publisher=page-publisher"
+    ]
+}

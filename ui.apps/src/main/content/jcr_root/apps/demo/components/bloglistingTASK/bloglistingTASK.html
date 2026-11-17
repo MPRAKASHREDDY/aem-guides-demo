@@ -1,0 +1,160 @@
+
+<!-- Load Blog Listing CSS Client Library -->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='demo.bloglisting'}"/>
+
+<!-- Load Sling Model -->
+<sly data-sly-use.model="com.adobe.aem.guides.demo.core.models.BlogListingModel"/>
+
+<div class="blog-listing" data-page-size="${model.pageSize}">
+
+    <h2 class="blog-listing__title">Latest Blogs</h2>
+
+    <!-- Display articles -->
+    <div class="blog-listing__grid"
+         data-sly-test="${model.articles}">
+
+        <sly data-sly-list.article="${model.articles}">
+
+            <!-- Cards after first page stay hidden -->
+            <article class="blog-card ${articleList.index >= model.pageSize ? 'blog-card--hidden' : ''}">
+
+                <!-- Article Image -->
+                <div class="blog-card__image"
+                     data-sly-test="${article.displayImage}">
+
+                    <img src="${article.displayImage @ context='uri'}"
+                         alt="${article.imageAlt || article.title}"
+                         loading="lazy"
+                         onerror="this.style.display='none'"/>
+
+                </div>
+
+                <!-- Article Details -->
+                <div class="blog-card__content">
+
+                    <h3>${article.title}</h3>
+
+                    <p class="blog-card__description">
+                        ${article.description}
+                    </p>
+
+                    <!-- Author -->
+                    <p data-sly-test="${article.blogAuthor}">
+                        Author: ${article.blogAuthor}
+                    </p>
+
+                    <!-- Published Date -->
+                    <p data-sly-test="${article.blogPublishedDate}">
+                        Published: ${article.blogPublishedDate}
+                    </p>
+
+                    <!-- Reading Duration -->
+                    <p data-sly-test="${article.blogReadDuration}">
+                        ${article.blogReadDuration} min read
+                    </p>
+
+                    <!-- Read More -->
+                    <a class="blog-card__link"
+                       href="${article.articleUrl @ context='uri'}"
+                       x-cq-linkchecker="skip">
+                        Read More
+                    </a>
+
+                </div>
+
+            </article>
+
+        </sly>
+
+    </div>
+
+    <!-- Show More Button -->
+    <div class="blog-listing__more-wrap"
+         data-sly-test="${model.hasMore}">
+
+        <button type="button" class="blog-listing__more">
+            Show More
+        </button>
+
+    </div>
+
+    <!-- Empty Result Message -->
+    <div data-sly-test="${!model.articles}"
+         class="blog-listing__empty">
+
+        <p>No blog articles found.</p>
+
+    </div>
+
+</div>
+
+<!-- Show More JavaScript -->
+<script>
+    (function () {
+
+        // Hide cards that are waiting to be displayed
+        var pending = document.querySelectorAll(
+            '.blog-card--hidden'
+        );
+
+        for (var n = 0; n < pending.length; n++) {
+            pending[n].style.display = 'none';
+        }
+
+        // Register click handler only once
+        if (window.blogListingShowMoreInit) {
+            return;
+        }
+
+        window.blogListingShowMoreInit = true;
+
+        document.addEventListener('click', function (event) {
+
+            var button = event.target.closest
+                ? event.target.closest('.blog-listing__more')
+                : null;
+
+            if (!button) {
+                return;
+            }
+
+            var listing = button.closest('.blog-listing');
+
+            if (!listing) {
+                return;
+            }
+
+            var pageSize = parseInt(
+                listing.getAttribute('data-page-size'),
+                10
+            ) || 12;
+
+            var hiddenCards = listing.querySelectorAll(
+                '.blog-card--hidden'
+            );
+
+            // Reveal the next batch of cards
+            for (var i = 0;
+                 i < pageSize && i < hiddenCards.length;
+                 i++) {
+
+                hiddenCards[i].classList.remove(
+                    'blog-card--hidden'
+                );
+
+                hiddenCards[i].style.display = '';
+            }
+
+            // Hide button when all cards are displayed
+            if (listing.querySelectorAll(
+                    '.blog-card--hidden'
+                ).length === 0) {
+
+                button.parentNode.style.display = 'none';
+            }
+
+        });
+
+    })();
+</script>

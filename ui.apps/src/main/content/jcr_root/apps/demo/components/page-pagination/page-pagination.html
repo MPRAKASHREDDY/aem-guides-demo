@@ -1,0 +1,8 @@
+<sly data-sly-use.model="com.adobe.aem.guides.demo.core.models.PagePaginationModel"></sly>
+<div class="cmp-page-pagination">
+    <h2>Page Pagination</h2>
+
+    <ul data-sly-list.page="${model.pages}">
+        <li>${page}</li>
+    </ul>
+</div>

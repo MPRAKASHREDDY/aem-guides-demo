@@ -1,0 +1,12 @@
+{
+  "scripts": [
+    "create service user demo-region-tree-service with path system/demo",
+    "create path (sling:Folder) /conf/region-tree",
+    "create path (sling:Folder) /conf/region-tree/actual",
+    "create path (sling:Folder) /conf/region-tree/temp",
+    "set ACL for demo-region-tree-service",
+    "allow jcr:read on /conf",
+    "allow jcr:read,rep:write on /conf/region-tree",
+    "end"
+  ]
+}

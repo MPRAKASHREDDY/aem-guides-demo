@@ -1,0 +1,101 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+
+<sly data-sly-call="${clientlib.css @ categories='aem-guides-demo.sidebar'}"></sly>
+
+
+<sly data-sly-use.sidebar="com.adobe.aem.guides.demo.core.models.Sidebar"></sly>
+
+<div class="sidebar">
+
+    <!-- Header -->
+    <header class="sidebar-header"
+            data-sly-test="${sidebar.enableSwitch}">
+
+        <a href="${sidebar.logoLink}"
+           data-sly-test="${sidebar.logoLink}">
+
+            <img src="${sidebar.logoPath}"
+                 alt="Logo"
+                 class="desktop-logo"
+                 data-sly-test="${sidebar.logoPath}" />
+
+            <img src="${sidebar.logoMobileImage}"
+                 alt="Mobile Logo"
+                 class="mobile-logo"
+                 data-sly-test="${sidebar.logoMobileImage}" />
+
+        </a>
+
+    </header>
+
+    <!-- Header Links -->
+    <nav class="header-links"
+         data-sly-test="${sidebar.headerLinks}">
+
+        <ul>
+            <li data-sly-repeat.link="${sidebar.headerLinks}">
+
+                <span data-sly-test="${link.name}">
+                    ${link.name}
+                </span>
+
+                <img src="${link.image}"
+                     alt="${link.name}"
+                     data-sly-test="${link.image}" />
+
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-navigation"
+         data-sly-test="${sidebar.navigationItems}">
+
+        <ul>
+            <li data-sly-repeat.item="${sidebar.navigationItems}">
+
+                <!-- Desktop and Mobile Icons -->
+                <div class="navigation-icons">
+
+                    <img src="${item.desktopIcon}"
+                         alt="Desktop Icon"
+                         class="desktop-icon"
+                         data-sly-test="${item.desktopIcon}" />
+
+                    <img src="${item.mobileIcon}"
+                         alt="Mobile Icon"
+                         class="mobile-icon"
+                         data-sly-test="${item.mobileIcon}" />
+
+                </div>
+
+                <!-- Nested Navigation URLs -->
+                <ul data-sly-test="${item.navigationUrls}">
+
+                    <li data-sly-repeat.url="${item.navigationUrls}">
+
+                        <a href="${url.navigationUrl}"
+                           data-sly-test="${url.navigationUrl}">
+                            ${url.navigationUrl}
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Region -->
+    <div class="sidebar-region"
+         data-sly-test="${sidebar.country}">
+
+        <span>Region: </span>
+        <span>${sidebar.country}</span>
+
+    </div>
+
+</div>
