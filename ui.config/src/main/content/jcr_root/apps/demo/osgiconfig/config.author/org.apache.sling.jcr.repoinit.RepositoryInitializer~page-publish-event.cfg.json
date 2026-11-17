@@ -1,0 +1,39 @@
+
+{
+  "scripts": [
+    "create service user demo-page-publish-event-service with forced path system/cq:services/demo",
+    "set principal ACL for demo-page-publish-event-service\n    allow jcr:read,rep:write on /content/demo\nend",
+
+    "create service user page-publisher with path system/cq:services/demo\nset ACL for page-publisher\n    allow jcr:read,jcr:modifyProperties,crx:replicate on /content/demo\nend",
+
+    "create service user demo-contact-writer with path system/cq:services/demo\nset ACL for demo-contact-writer\n    allow jcr:read,jcr:write on /content/demo\nend",
+
+    "create service user demo-contact-service-user with forced path system/cq:services/demo",
+    "set ACL on /var/demo/contacts (ACLOptions=merge)\n    allow jcr:read,rep:write for demo-contact-service-user\nend",
+
+    "create service user contact-service with path system/cq:services/demo\ncreate path /var/contactus/contacts(sling:Folder)\nset ACL for contact-service\n    allow jcr:read,rep:write,jcr:nodeTypeManagement on /var/contactus\nend",
+
+    "create service user demo-publish-user with path system/demo\nset ACL for demo-publish-user\n    allow jcr:read,crx:replicate,jcr:versionManagement,jcr:modifyProperties on /content/demo\nend",
+
+    "ensure nodes (sling:Folder) /var/demo",
+    "ensure nodes (sling:Folder) /var/demo/contacts",
+
+     "create service user data-writer with forced path system/cq:services/demo",
+    "set principal ACL for data-writer\n    allow jcr:read,jcr:modifyProperties on /content/demo\nend",
+
+
+    "create service user asset-publisher with forced path system/cq:services/demo",
+
+"set principal ACL for asset-publisher\n    allow jcr:read,crx:replicate on /content/dam/images\nend",
+
+
+ "create service user region-tree-writer with forced path system/cq:services/demo",
+    "set principal ACL for region-tree-writer\nallow jcr:read,rep:write on /conf\nend"
+
+
+
+
+
+    
+  ]
+}

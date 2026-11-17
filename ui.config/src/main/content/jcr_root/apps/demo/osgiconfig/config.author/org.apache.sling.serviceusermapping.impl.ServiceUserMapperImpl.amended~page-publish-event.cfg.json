@@ -1,0 +1,15 @@
+{
+  "user.mapping": [
+    "aem-guides-demo.core:page-publish-event-service=[demo-page-publish-event-service]",
+     "aem-guides-demo.core:demo-contact-writer=[demo-contact-writer]",
+     "aem-guides-demo.core:demo-contact-service=[demo-contact-service-user]",
+     "aem-guides-demo.core:contact-service=[contact-service]",
+     "aem-guides-demo.core:demo-publish-service=[demo-publish-user]",
+     "aem-guides-demo.core:data-writer=[data-writer]",
+     "aem-guides-demo.core:asset-publisher=[asset-publisher]",
+     "aem-guides-demo.core:region-tree-writer=[region-tree-writer]"
+    
+   
+  ]
+    
+}

@@ -41,11 +41,20 @@
                         <goals>
                             <goal>bnd-process</goal>
                         </goals>
-                        <configuration>
+                        <!-- <configuration>
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
                                 ]]></bnd>
-                        </configuration>
+                        </configuration> -->
+                        <configuration>
+    <bnd><![CDATA[
+Import-Package: \
+    javax.annotation;version=0.0.0, \
+    com.day.cq.replication;version="[6.14,7)", \
+    org.apache.jackrabbit.api.security.user;version="[2.4,3)",\
+    *
+    ]]></bnd>
+</configuration>
                     </execution>
                 </executions>
             </plugin>

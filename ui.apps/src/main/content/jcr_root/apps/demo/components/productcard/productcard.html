@@ -1,0 +1,19 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='demo.shopkart.productcard'}"></sly>
+
+<div class="shop-product-card">
+    <a href="${properties.productLink}.html">
+        <img class="shop-product-image"
+             src="${properties.productImage}"
+             alt="${properties.productName}"
+             data-sly-test="${properties.productImage}"/>
+    </a>
+    <div class="shop-product-details">
+        <h3>${properties.productName}</h3>
+        <p class="shop-product-price">₹${properties.productPrice}</p>
+        <a class="shop-product-button"
+           href="${properties.productLink}.html">
+            ${properties.buttonText || 'View Product'}
+        </a>
+    </div>
+</div>

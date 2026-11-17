@@ -1,0 +1,5 @@
+{
+    "scripts": [
+        "create service user demo-writer with path system/cq:services/demo\nset ACL for demo-writer\nallow jcr:read,jcr:modifyProperties on /content/demo\nend"
+    ]
+}

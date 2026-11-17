@@ -1,0 +1,91 @@
+<sly data-sly-use.model="com.adobe.aem.guides.demo.core.models.FormFieldsModel"></sly>
+
+<div class="employee-card">
+    <!-- Employee Header -->
+    <div class="employee-header">
+        <h2>Employee Details</h2>
+    </div>
+
+    <!-- Employee Details -->
+    <div class="employee-details">
+
+        <div class="detail-box">
+            <strong>Name</strong>
+            <p>${model.name}</p>
+        </div>
+
+        <div class="detail-box">
+            <strong>Age</strong>
+            <p>${model.age}</p>
+        </div>
+
+        <div class="detail-box">
+            <strong>Active</strong>
+            <p>${model.active}</p>
+        </div>
+
+        <div class="detail-box">
+            <strong>Gender</strong>
+            <p>${model.gender}</p>
+        </div>
+
+        <div class="detail-box page-path">
+            <strong>Page Path</strong>
+            <p>${model.pagePath}</p>
+        </div>
+
+        <div class="detail-box">
+            <strong>Background Color</strong>
+            <p>${model.backgroundColor}</p>
+        </div>
+
+        <div class="detail-box">
+            <strong>Joining Date</strong>
+            <p>${model.joiningDate}</p>
+        </div>
+
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-section">
+
+        <h3>Skills</h3>
+
+        <ul data-sly-list.skill="${model.skills}" class="skills-list">
+            <li>${skill}</li>
+        </ul>
+
+        <p data-sly-test="${!model.skills || model.skills.size == 0}">
+            No skills added.
+        </p>
+
+    </div>
+
+    <!-- Projects -->
+    <div class="projects-section">
+
+        <h3>Projects</h3>
+
+        <div data-sly-list.project="${model.projects}">
+
+            <div class="project-card">
+
+                <h4>${project.projectName}</h4>
+
+                <p class="technologies-title">Technologies Used</p>
+
+                <ul data-sly-list.tech="${project.technologies}"
+                    class="technologies-list">
+                    <li>${tech.technology}</li>
+                </ul>
+
+            </div>
+
+        </div>
+        <p data-sly-test="${!model.projects || model.projects.size == 0}">
+            No projects added.
+        </p>
+
+    </div>
+
+</div>

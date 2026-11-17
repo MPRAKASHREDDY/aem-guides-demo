@@ -1,0 +1,13 @@
+<sly data-sly-use.model="com.adobe.aem.guides.demo.core.models.ContactFormModel"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<div class="demo-contact" data-servlet="/bin/demo/contact" data-id="${model.id}">
+    <h3>${model.editing ? 'Edit contact' : 'Contact us'}</h3>
+    <form class="demo-contact__form" novalidate>
+        <p><label>Name <input type="text" name="name" value="${model.name}" maxlength="100"/></label></p>
+        <p><label>Email <input type="email" name="email" value="${model.email}" maxlength="100"/></label></p>
+        <p><label>Mobile <input type="tel" name="mobile" value="${model.mobile}" maxlength="10"/></label></p>
+        <button type="button" class="demo-contact__submit">${model.editing ? 'Update' : 'Submit'}</button>
+    </form>
+    <p class="demo-contact__message" role="status"></p>
+</div>
+<sly data-sly-call="${clientlib.js @ categories='demo.contactus'}"/>

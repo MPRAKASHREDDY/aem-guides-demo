@@ -1,0 +1,28 @@
+/* Apply the same size to all Sidebar images */
+.sidebar img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* Align navigation icons */
+.navigation-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Remove default list styling */
+.header-links ul,
+.sidebar-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Add spacing between items */
+.header-links li,
+.sidebar-navigation li {
+    margin-bottom: 10px;
+}

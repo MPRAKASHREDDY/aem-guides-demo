@@ -1,0 +1,67 @@
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='demo.shopkart.header'}"></sly>
+
+<header class="shop-header">
+    <a class="shop-logo"
+       href="${properties.logoLink || '/content/demo/us/en.html'}">
+        ${properties.logoText || 'ShopKart'}
+    </a>
+
+    <nav class="shop-nav">
+        <a href="${properties.logoLink || '/content/demo/us/en.html'}">
+            ${properties.homeLabel || 'Home'}
+        </a>
+
+        <div class="shop-menu">
+            <a href="/content/demo/us/en/men.html">${properties.menLabel || 'Men'} ⌄</a>
+            <div class="shop-dropdown">
+                <div>
+                    <h3>Clothing</h3>
+                    <a href="/content/demo/us/en/t-shirts.html">T-Shirts</a>
+                    <a href="/content/demo/us/en/shirts.html">Shirts</a>
+                    <a href="/content/demo/us/en/t-jeans.html">Jeans</a>
+                </div>
+                <div>
+                    <h3>Footwear</h3>
+                    <a href="#">Sneakers</a>
+                    <a href="#">Formal Shoes</a>
+                    <a href="#">Sandals</a>
+                </div>
+                <div>
+                    <h3>Accessories</h3>
+                    <a href="#">Watches</a>
+                    <a href="#">Wallets</a>
+                    <a href="#">Sunglasses</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-menu">
+            <a href="#">${properties.womenLabel || 'Women'} ⌄</a>
+            <div class="shop-dropdown">
+                <div>
+                    <h3>Clothing</h3>
+                    <a href="#">Dresses</a>
+                    <a href="#">Tops</a>
+                    <a href="#">Jeans</a>
+                </div>
+                <div>
+                    <h3>Accessories</h3>
+                    <a href="#">Handbags</a>
+                    <a href="#">Jewellery</a>
+                    <a href="#">Watches</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#">Electronics</a>
+        <a href="#">Sale</a>
+    </nav>
+
+    <div class="shop-actions">
+        <a href="#">Search</a>
+        <a href="#">Account</a>
+        <a href="#">Cart</a>
+    </div>
+</header>

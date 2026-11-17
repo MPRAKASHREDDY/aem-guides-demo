@@ -1,0 +1,219 @@
+/* Header container */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Header title */
+.header-title {
+    color: #172554 !important;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+.header-title:hover {
+    color: #2563eb !important;
+}
+
+/* Navigation container */
+.header-navigation {
+    margin-left: auto;
+}
+
+/* Navigation menu */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation buttons */
+.menu-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #f1f5f9;
+    color: #334155 !important;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 15px;
+    text-decoration: none !important;
+    outline: none;
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                outline 0.2s ease;
+}
+
+/* Navigation button hover */
+.menu-button:hover {
+    background-color: #e2e8f0;
+    color: #1d4ed8 !important;
+}
+
+/* Navigation button keyboard focus */
+.menu-button:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Main header button */
+a.header-button {
+    display: inline-block !important;
+    padding: 12px 28px !important;
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border: 1px solid #2563eb !important;
+    border-radius: 8px !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+    transition: background-color 0.3s ease,
+                box-shadow 0.3s ease,
+                outline 0.2s ease;
+}
+
+/* Main header button hover */
+a.header-button:hover {
+    background-color: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Main header button keyboard focus */
+a.header-button:focus-visible {
+    outline: 2px solid #2563eb !important;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Button container */
+.button_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Multifield button */
+.button_container .button {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #172554;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                border-color 0.3s ease;
+}
+
+/* Multifield button hover */
+.button_container .button:hover {
+    background-color: #f1f5f9;
+}
+
+/* Blue border only when navigating with keyboard */
+.button_container .button:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-color: #2563eb;
+}
+
+/* Button text */
+.button_text {
+    display: inline-block;
+}
+
+/* Button icon */
+.button_icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Responsive layout for tablets and mobile */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 16px 20px;
+    }
+
+    .header-title {
+        font-size: 22px;
+    }
+
+    .header-navigation {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .button_container {
+        flex-wrap: wrap;
+    }
+
+    a.header-button {
+        padding: 10px 20px !important;
+        font-size: 14px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-navigation {
+        width: 100%;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .button_container {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}

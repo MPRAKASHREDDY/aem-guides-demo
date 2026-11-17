@@ -1,0 +1,37 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+
+<sly data-sly-call="${clientlib.css @ categories='aem-guides-demo.single-article'}"></sly>
+
+<sly data-sly-use.article="com.adobe.aem.guides.demo.core.models.SingleArticle"/>
+
+<div class="single-article">
+
+    <div class="article-header">
+        <h3>Task 6: Single Article Component</h3>
+
+        <div class="article-details">
+            <p>
+                <strong>Enable PII:</strong>
+                ${article.enablePII ? 'True' : 'False'}
+            </p>
+
+            <p data-sly-test="${article.enablePII}">
+                <strong>Applied CSS Class:</strong>
+                <code>${article.cssClass}</code>
+            </p>
+        </div>
+
+        <div class="target-container">
+            <h4>Target Div Container</h4>
+
+            <p>
+                Current class attribute:
+                <strong>"${article.enablePII ? article.cssClass : ''}"</strong>
+            </p>
+
+            <div class="${article.enablePII ? article.cssClass : ''}">
+                This is the target div content.
+            </div>
+        </div>
+    </div>
+</div>

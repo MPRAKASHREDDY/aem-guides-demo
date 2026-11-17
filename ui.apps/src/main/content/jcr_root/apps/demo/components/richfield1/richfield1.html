@@ -1,0 +1,8 @@
+<div class="cmp-richtext"
+     data-sly-use.rt="com.adobe.aem.guides.demo.core.models.RichTextModel">
+    <div data-sly-test="${!rt.empty}"
+         class="cmp-richtext__content">${rt.text @ context='html'}</div>
+    <div data-sly-test="${rt.empty && wcmmode.edit}"
+         class="cq-placeholder"
+         data-emptytext="Rich Text Component"></div>
+</div>

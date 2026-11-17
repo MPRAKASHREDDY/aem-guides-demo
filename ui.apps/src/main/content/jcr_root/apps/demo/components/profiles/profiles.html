@@ -1,0 +1,17 @@
+
+<div class="profiles">
+
+    <h2>${properties.name}</h2>
+
+    <div data-sly-test="${properties.image}">
+        <img
+            src="${properties.image}"
+            alt="${properties.name}"
+            style="width: 200px; height: auto;"/>
+    </div>
+
+    <div data-sly-test="${!properties.image}">
+        <p>Please select an image from the component dialog.</p>
+    </div>
+
+</div>
