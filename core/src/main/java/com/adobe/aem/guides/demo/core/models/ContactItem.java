@@ -2,6 +2,8 @@ package com.adobe.aem.guides.demo.core.models;
 
 public class ContactItem {
 
+
+    // This is the change i have done
     private final String id;
     private final String name;
     private final String email;
