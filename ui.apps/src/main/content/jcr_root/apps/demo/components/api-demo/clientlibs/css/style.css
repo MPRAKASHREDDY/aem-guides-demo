@@ -1,0 +1,36 @@
+
+.api-demo {
+    padding: 25px;
+    background: #f4f4f4;
+    border-radius: 8px;
+}
+
+.api-demo h2 {
+    color: #222;
+    margin-bottom: 20px;
+}
+
+#loadUsers {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loadUsers:hover {
+    background: #0056b3;
+}
+
+#user-container {
+    margin-top: 20px;
+}
+
+.user-card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}

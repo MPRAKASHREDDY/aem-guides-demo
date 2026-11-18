@@ -1,0 +1,14 @@
+<div class="api-demo">
+
+    <h2>JavaScript API Calling Demo</h2>
+
+    <button id="loadUsers">Load Users</button>
+
+    <div id="user-container">
+        Click the button to load users.
+    </div>
+
+</div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='demo.apidemo'}"/>

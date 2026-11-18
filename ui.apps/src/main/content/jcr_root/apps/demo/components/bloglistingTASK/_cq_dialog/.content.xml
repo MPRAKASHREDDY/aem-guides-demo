@@ -38,12 +38,13 @@
                                 name="./maxItems"
                                 value="12"/>
 
-                            <!-- Tag Picker for Content Type / Categories -->
+                            <!-- Tag Picker for Content Type / Categories (Multi-select enabled) -->
                             <contentTypeFilter
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="cq/gui/components/coral/common/form/tagfield"
                                 fieldDescription="Select one or more categories. Leave empty to show all categories."
                                 fieldLabel="Content Type Filter"
+                                multiple="{Boolean}true"
                                 name="./contentTypeFilter"
                                 rootPath="/content/cq:tags"/>
 

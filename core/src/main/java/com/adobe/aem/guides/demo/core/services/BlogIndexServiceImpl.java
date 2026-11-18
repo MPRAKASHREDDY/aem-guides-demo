@@ -143,7 +143,7 @@ public class BlogIndexServiceImpl implements BlogIndexService {
 
                 article.setDescription(
                         getJsonValue(articleJson, "description"));
-
+ //ass
                 article.setTags(
                         getJsonValue(articleJson, "tags"));
 
@@ -170,6 +170,17 @@ public class BlogIndexServiceImpl implements BlogIndexService {
 
                 article.setBlogReadDuration(
                         getJsonValue(articleJson, "blogReadDuration"));
+
+                LOG.info("---------- ARTICLE {} ----------", i + 1);
+                LOG.info("Title: {}", article.getTitle());
+                LOG.info("Path: {}", article.getPath());
+                LOG.info("Description: {}", article.getDescription());
+                LOG.info("Categories: {}", article.getCategories());
+                LOG.info("Tags: {}", article.getTags());
+                LOG.info("Author: {}", article.getBlogAuthor());
+                LOG.info("Published Date: {}", article.getBlogPublishedDate());
+                LOG.info("Image: {}", article.getDisplayImage());
+                LOG.info("Read Duration: {}", article.getBlogReadDuration());
 
                 articles.add(article);
             }
