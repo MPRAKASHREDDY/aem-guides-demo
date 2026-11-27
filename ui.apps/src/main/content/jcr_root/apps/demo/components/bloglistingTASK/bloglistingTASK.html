@@ -8,7 +8,7 @@
 
 <div class="blog-listing" data-page-size="${model.pageSize}">
 
-    <h2 class="blog-listing__title">Latest Blogs</h2>
+   <h2 class="blog-listing__title" data-sly-test="${model.heading}">${model.heading}</h2>
 
     <!-- Display articles -->
     <div class="blog-listing__grid"
@@ -54,14 +54,15 @@
                         ${article.blogReadDuration} min read
                     </p>
 
-                    <!-- Read More -->
+                   
+
+                </div>
+                 <!-- Read More -->
                     <a class="blog-card__link"
                        href="${article.articleUrl @ context='uri'}"
                        x-cq-linkchecker="skip">
                         Read More
                     </a>
-
-                </div>
 
             </article>
 
@@ -70,11 +71,12 @@
     </div>
 
     <!-- Show More Button -->
+   <!-- Show More Button -->
     <div class="blog-listing__more-wrap"
-         data-sly-test="${model.hasMore}">
+         data-sly-test="${model.hasMore && model.showMoreLabel}">
 
         <button type="button" class="blog-listing__more">
-            Show More
+            ${model.showMoreLabel}
         </button>
 
     </div>

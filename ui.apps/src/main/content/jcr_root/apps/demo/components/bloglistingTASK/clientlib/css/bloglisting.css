@@ -1,28 +1,26 @@
-
 /* ==========================================================================
    1. MAIN BLOG LISTING CONTAINER
    ========================================================================== */
 
 .blog-listing {
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
+    background: #F3F7FF !important;
 }
 
 /* Blog Listing Heading */
 
 .blog-listing__title {
     font-size: 26px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 25px;
-    color: #222;
+    color: #142D59 !important;
 }
 
 /* ==========================================================================
    2. BLOG CARDS GRID
    ========================================================================== */
-
-/* Four Cards Per Row */
 
 .blog-listing__grid {
     display: grid;
@@ -52,19 +50,37 @@
    3. INDIVIDUAL BLOG CARD
    ========================================================================== */
 
-.blog-card {
+.blog-listing .blog-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     min-width: 0;
     overflow: hidden;
-    border: 1px solid #e5e5e5;
-    border-radius: 6px;
-    background: #fff;
+    background: #FFFFFF !important;
+    border: 1px solid #0d66d0 !important;
+    border-radius: 14px !important;
     box-sizing: border-box;
     position: relative;
+    box-shadow: 0 4px 12px rgba(20, 45, 89, 0.06);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    cursor: pointer;
 }
 
-/* Hide cards waiting for Show More */
+/* Card Hover Effect */
+
+@media (hover: hover) {
+    .blog-listing .blog-card:hover {
+        transform: scale(1.04);
+        background: #FFFFFF !important;
+        border-color: #0866FF !important;
+        box-shadow: 0 12px 28px rgba(8, 102, 255, 0.18);
+        z-index: 10;
+    }
+}
+
+/* Hide Cards Waiting for Show More */
 
 .blog-listing .blog-card.blog-card--hidden {
     display: none !important;
@@ -76,9 +92,9 @@
 
 .blog-card__image {
     width: 100%;
-    height: 160px;
+    height: 175px;
     overflow: hidden;
-    background: #f5f5f5;
+    background: #F3F7FF;
     flex-shrink: 0;
 }
 
@@ -88,6 +104,16 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transform: scale(1);
+    transition: transform 0.4s ease;
+}
+
+/* Image Hover Zoom */
+
+@media (hover: hover) {
+    .blog-listing .blog-card:hover .blog-card__image img {
+        transform: scale(1.06);
+    }
 }
 
 /* ==========================================================================
@@ -100,56 +126,116 @@
     flex-grow: 1;
     padding: 15px;
     box-sizing: border-box;
+    background: #FFFFFF !important;
 }
 
-/* Article Title */
+/* Card Headings */
 
-.blog-card__content h3 {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4;
-    margin: 0 0 12px;
-    color: #222;
+.blog-listing .blog-card .blog-card__content :is(h1, h2, h3, h4, h5) {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin: 0 0 12px !important;
+    font-weight: 700 !important;
+    color: #142D59 !important;
+}
+
+.blog-listing .blog-card .blog-card__content h1 {
+    font-size: 24px !important;
+    line-height: 30px !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    height: 60px !important;
+}
+
+.blog-listing .blog-card .blog-card__content h2 {
+    font-size: 22px !important;
+    line-height: 28px !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    height: 56px !important;
+}
+
+.blog-listing .blog-card .blog-card__content h3 {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    height: 72px !important;
+}
+
+.blog-listing .blog-card .blog-card__content h4 {
+    font-size: 16px !important;
+    line-height: 22px !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    height: 44px !important;
+}
+
+.blog-listing .blog-card .blog-card__content h5 {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    height: 40px !important;
 }
 
 /* Article Description */
 
-.blog-card__description {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #555;
-    margin: 0 0 12px;
+.blog-listing .blog-card .blog-card__content p.blog-card__description {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    overflow: hidden !important;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    height: 60px !important;
+    color: #526581 !important;
+    margin: 0 0 12px !important;
 }
 
-/* Author, Date and Reading Duration */
+/* Author, Published Date, Reading Duration */
 
-.blog-card__content p {
-    font-size: 13px;
-    line-height: 1.5;
-    color: #666;
-    margin: 0 0 8px;
+.blog-listing .blog-card .blog-card__content p:not(.blog-card__description) {
+    display: block;
+    font-size: 13px !important;
+    line-height: 20px !important;
+    height: 20px !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #71819B !important;
+    margin: 0 0 8px !important;
 }
 
 /* ==========================================================================
-   6. READ MORE LINK
+   6. READ MORE BUTTON
    ========================================================================== */
 
 .blog-card__link {
     display: inline-block;
     width: fit-content;
-    margin-top: auto;
-    padding-top: 4px;
-    font-size: 12px;
+    align-self: flex-start;
+    margin: auto 0 0;
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 600;
-    color: #0066cc !important;
-    text-decoration: none !important;
-    background: none !important;
+    color: #FFFFFF !important;
+    background: #0866FF !important;
     background-image: none !important;
+    text-decoration: none !important;
+    transition: background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .blog-card__link:hover {
-    color: #004a99 !important;
-    text-decoration: underline !important;
+    background: #0047B3 !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(8, 102, 255, 0.2);
 }
 
 /* ==========================================================================
@@ -166,7 +252,7 @@
     max-width: 16px !important;
 }
 
-/* Remove unwanted link pseudo-elements */
+/* Remove Unwanted Link Pseudo-elements */
 
 .blog-card a::before,
 .blog-card a::after,
@@ -178,7 +264,7 @@
     background-image: none !important;
 }
 
-/* Hide unwanted injected icons */
+/* Hide Unwanted Injected Icons */
 
 .blog-card svg,
 .blog-card i,
@@ -200,19 +286,22 @@
 
 .blog-listing .blog-listing__more {
     padding: 12px 32px;
-    border: 1px solid #0066cc;
+    border: 1px solid #0866FF;
     border-radius: 24px;
-    background: #fff;
-    color: #0066cc;
+    background: #FFFFFF;
+    color: #0866FF;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .blog-listing .blog-listing__more:hover {
-    background: #0066cc;
-    color: #fff;
+    background: #0866FF;
+    color: #FFFFFF;
+    box-shadow: 0 5px 14px rgba(8, 102, 255, 0.2);
 }
 
 /* ==========================================================================
@@ -222,6 +311,54 @@
 .blog-listing__empty {
     padding: 20px;
     text-align: center;
-    color: #666;
+    color: #71819B;
     font-size: 15px;
+}
+
+/* ==========================================================================
+   10. BLOG LISTING DIALOG (AUTHOR MODE)
+   ========================================================================== */
+
+/* Lock Outer Coral Dialog Box Size */
+
+form._coral-Dialog.cq-dialog:has(.blog-listing-dialog) {
+    width: 650px !important;
+    height: 500px !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+}
+
+/* Dialog Content */
+
+form._coral-Dialog.cq-dialog:has(.blog-listing-dialog) ._coral-Dialog-content,
+.blog-listing-dialog {
+    max-height: 360px !important;
+    overflow-y: auto !important;
+    box-sizing: border-box;
+}
+
+/* Tag List */
+
+.blog-listing-dialog coral-taglist._coral-Tags {
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   11. ACCESSIBILITY
+   ========================================================================== */
+
+/* Respect Reduced Motion Preference */
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-card,
+    .blog-card__image img,
+    .blog-card__link,
+    .blog-listing__more {
+        transition: none !important;
+    }
+
+    .blog-listing .blog-card:hover {
+        transform: none;
+    }
 }

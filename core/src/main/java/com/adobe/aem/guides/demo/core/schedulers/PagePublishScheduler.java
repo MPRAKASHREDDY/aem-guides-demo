@@ -1,12 +1,8 @@
-
 package com.adobe.aem.guides.demo.core.schedulers;
-
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Deque;
-
 import javax.jcr.Session;
-
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;

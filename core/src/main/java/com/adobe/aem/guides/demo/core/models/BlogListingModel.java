@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
+import org.apache.commons.lang3.StringUtils;
 import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
@@ -50,6 +50,20 @@ public class BlogListingModel {
     // Number of cards shown initially and per click
     private int pageSize = DEFAULT_PAGE_SIZE;
 
+    @ValueMapValue
+    private String heading;
+
+   public String getHeading() {
+        return StringUtils.isNotBlank(heading) ? heading.trim() : null;
+    }
+
+
+    @ValueMapValue
+private String showMoreLabel;
+
+public String getShowMoreLabel() {
+    return StringUtils.isNotBlank(showMoreLabel) ? showMoreLabel.trim() : null;
+}
     @PostConstruct
     protected void init() {
 

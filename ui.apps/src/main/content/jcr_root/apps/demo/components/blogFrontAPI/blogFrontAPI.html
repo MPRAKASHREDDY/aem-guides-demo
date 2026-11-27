@@ -1,0 +1,35 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<div class="blog-component">
+
+    <div class="blog-header">
+        <h1>Latest Blog Articles</h1>
+        <p>Explore our latest articles and updates.</p>
+    </div>
+
+    <!-- Loading message -->
+    <p id="blog-loading" class="blog-message">
+        Loading articles...
+    </p>
+
+    <!-- Error message -->
+    <p id="blog-error" class="blog-message blog-error"
+       hidden>
+    </p>
+
+    <!-- Articles will be displayed here -->
+    <div id="blog-container" class="blog-container">
+    </div>
+
+    <!-- Empty message -->
+    <p id="blog-empty" class="blog-message" hidden>
+        No blog articles found.
+    </p>
+
+</div>
+
+<!-- Include CSS -->
+<sly data-sly-call="${clientlib.css @ categories='demo.blog'}"/>
+
+<!-- Include JavaScript -->
+<sly data-sly-call="${clientlib.js @ categories='demo.blog'}"/>

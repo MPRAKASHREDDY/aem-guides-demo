@@ -104,7 +104,7 @@ Import-Package: \
             <artifactId>core.wcm.components.core</artifactId>
             <scope>test</scope>
         </dependency>
-
+               
 
         <!-- Testing -->
         <dependency>

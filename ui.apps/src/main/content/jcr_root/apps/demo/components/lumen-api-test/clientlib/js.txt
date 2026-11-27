@@ -1,2 +1,0 @@
-#base=js
-lumen-api-test.js
